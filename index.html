@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="w-full bg-stone-300 relative ">
+        <div class="py-2 pl-4 bg-stone-700 text-white h-14">
+            <nav class="wideNavigationBar flex justify-center space-x-8 py-2">
+                <a href="">Main</a>
+                <a href="">About Me</a>
+                <a href="">Projects</a>
+                <a href="">Resume</a>
+                <a href="">Contact Me</a>
+                <a href="">WebBlogs</a>
+            </nav>
+
+            <button class="hambergurBtn my-auto cursor-pointer" onclick="openHambergur()">
+                <svg viewBox="0 0 20 20" fill="currentColor" class="-mr-1 size-8 text-gray-400">
+                    <path
+                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" />
+                </svg>
+            </button>
+
+            <div
+                class="hambergurDropdown absolute ml-0.5 mt-4.5 w-56 divide-y text-2xl justify-center z-1000 bg-stone-700 text-white divide-white/10 rounded-md ">
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden">Main</a>
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden">About
+                    Me</a>
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden">Projects</a>
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden">Resume</a>
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden">Contact
+                    Me</a>
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:text-white focus:outline-hidden">WebBlogs</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- main container -->
+    <div class="bg-stone-300 w-full h-full flex justify-center items-center fixed -z-100">
+        This is the main container part
+        <!-- <br> -->
+    </div>
+
+    <footer class="flex justify-center space-x-3 py-2 bg-stone-700 text-white absolute bottom-0 w-full">
+        This is footer.
+        <a href="">linkedin</a>
+    </footer>
+
+
+    <script>
+        let togg = '0';
+
+        function openHambergur() {
+            const dropdownMenu = document.querySelector('.hambergurDropdown');
+            if (togg == '0') {
+                togg = '1';
+                dropdownMenu.style.display = 'block';
+            } else if (togg == '1') {
+                togg = '0';
+                dropdownMenu.style.display = 'none';
+            }
+        }
+
+        function checkScreenSize() {
+            togg = '0';
+            const wideMenu = document.querySelector('.wideNavigationBar');
+            const hamberBtn = document.querySelector('.hambergurBtn');
+            const dropdownMenu = document.querySelector('.hambergurDropdown');
+            const width = window.innerWidth;
+            if (width <= 768) {
+                wideMenu.style.display = "none";
+                dropdownMenu.style.display = 'none';
+                hamberBtn.style.display = 'block';
+            } else if (width > 768) {
+                dropdownMenu.style.display = 'none';
+                hamberBtn.style.display = 'none';
+                wideMenu.classList.add('justify-center');
+                wideMenu.style.display = "flex";
+            }
+        }
+
+        window.addEventListener('resize', checkScreenSize);
+        checkScreenSize();
+    </script>
+    </div>
+
+</body>
+
+</html>
