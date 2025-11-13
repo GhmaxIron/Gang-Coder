@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>SlideShow</title>
+</head>
+
+<body>
+    <div id="totalContainer" class="flex flex-col justify-center items-center h-auto ">
+        <div id="imgContainer" class="flex justify-center items-center mt-40 w-1/2 h-60">
+            <img id="wall" src="" alt="" class="w-full h-auto">
+            <div class="absolute left-10 bg-sky-400 cursor-pointer" onclick="before_next('-')"> left</div>
+            <div class="absolute right-10 bg-sky-400 cursor-pointer" onclick="before_next('+')"> right</div>
+        </div>
+        <div id="bulletsContainer" class="flex justify-center items-center pt-16">
+            <div id="0" value="0" class="bg-stone-500 w-10 h-10 rounded-[50%] mx-2 cursor-pointer" onclick="change(0)">
+            </div>
+            <div id="1" value="1" class="bg-stone-500 w-10 h-10 rounded-[50%] mx-2 cursor-pointer" onclick="change(1)">
+            </div>
+            <div id="2" value="2" class="bg-stone-500 w-10 h-10 rounded-[50%] mx-2 cursor-pointer" onclick="change(2)">
+            </div>
+            <div id="3" value="3" class="bg-stone-500 w-10 h-10 rounded-[50%] mx-2 cursor-pointer" onclick="change(3)">
+            </div>
+        </div>
+    </div>
+    <script>
+        let i = 0;
+        let t = 0;
+        const gallery = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg'];
+        document.getElementById('wall').setAttribute("src", gallery[i]);
+        document.getElementById(`0`).style.backgroundColor = "yellow";
+
+        function before_next(x) {
+            if (x == '-') {
+                if (i == 0) {
+                    i = 3;
+                } else {
+                    i--;
+                }
+                document.getElementById('wall').setAttribute("src", gallery[i]);
+            } else if (x == '+') {
+                if (i == 3) {
+                    i = 0;
+                } else {
+                    i++;
+                }
+                document.getElementById('wall').setAttribute("src", gallery[i]);
+            };
+            t = i;
+            change(i);
+        };
+
+        function change(x) {
+            t = x;
+            i = x;
+            if (t == x) {
+                document.getElementById(`${x}`).style.backgroundColor = "yellow";
+                for (let j = 0; j < 4; j++) {
+                    if (j != x) {
+                        document.getElementById(`${j}`).style.backgroundColor = "#79716b";
+                    };
+                };
+            };
+            document.getElementById('wall').setAttribute("src", gallery[x]);
+        };
+    </script>
+</body>
+
+</html>
