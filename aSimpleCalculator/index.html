@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bg-stone-800 w-full h-screen flex justify-center items-center">
+        <div class="bg-stone-400 w-1/2 h-[400px] border-amber-100 border-2 flex flex-col overflow-hidden rounded-2xl">
+            <div class="screen bg-black w-full h-1/6 text-white text-4xl pt-2 pl-2">0
+            </div>
+            <div class="buttons grid grid-cols-4 gap-4 grid-rows-5 text-white text-center m-2 text-4xl">
+                <div class="grid grid-cols-4 col-span-4 gap-4">
+                    <div
+                        class="border-amber-100 border-2 rounded-2xl flex justify-center items-center cursor-pointer bg-blue-600 hover:bg-blue-300 col-span-2" onclick="cleaner('cls')">
+                        CE</div>
+                    <div
+                        class="border-amber-100 border-2 rounded-2xl flex justify-center items-center cursor-pointer bg-blue-600 hover:bg-blue-300 col-span-2" onclick="cleaner('backspace')">
+                        <img src="img/backspace-solid.svg" alt="backspace" width="40px"></div>
+                </div>
+                <div id="numpad" class="numpads grid grid-cols-3 col-span-3 row-span-3 gap-4">
+                </div>
+                <div class="border-amber-100 border-2 rounded-2xl flex justify-center items-center cursor-pointer bg-blue-600 hover:bg-blue-300"
+                    onclick="operate('×')">×</div>
+                <div class="border-amber-100 border-2 rounded-2xl flex justify-center items-center cursor-pointer bg-blue-600 hover:bg-blue-300"
+                    onclick="operate('÷')">÷</div>
+                <div class="border-amber-100 border-2 rounded-2xl flex justify-center items-center cursor-pointer bg-blue-600 hover:bg-blue-300"
+                    onclick="operate('+')">+</div>
+                <div class="border-amber-100 border-2 rounded-2xl flex justify-center items-center cursor-pointer bg-blue-600 hover:bg-blue-300"
+                    onclick="operate('-')">-</div>
+                <div class="border-amber-100 border-2 rounded-2xl flex justify-center items-center cursor-pointer bg-blue-600 hover:bg-blue-300"
+                    onclick="numberInsert(0)">0</div>
+                <div class="border-amber-100 border-2 rounded-2xl flex justify-center items-center cursor-pointer bg-blue-600 hover:bg-blue-300"
+                    onclick="numberInsert('.')">.</div>
+                <div class="border-amber-100 border-2 rounded-2xl flex justify-center items-center cursor-pointer bg-blue-600 hover:bg-blue-300"
+                    onclick="calculate()">=</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/myscripts.js"></script>
+</body>
+
+</html>
