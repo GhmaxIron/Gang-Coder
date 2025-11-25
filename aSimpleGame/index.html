@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number Game</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <div class="bg-gray-500 w-full h-screen flex flex-col justify-center items-center gap-4">
+        <label for="" class="text-white">Guess a whole number from 0 to 100:</label>
+        <input id="inputNumber" type="number" placeholder="Please Enter Your Guess "
+            class="text-white border py-2 px-6 text-center">
+        <label id="hint" for="">Hint</label>
+        <button class="py-2 px-4 border border-white cursor-pointer rounded-2xl" onclick="check()">Check</button>
+    </div>
+
+    <script>
+        let input = document.getElementById('inputNumber');
+        let hint = document.getElementById('hint');
+        let target = Math.floor(Math.random() * 100);
+        input.focus();
+
+        function check() {
+            if (+input.value == target) {
+                alert("congratulations. You winnnnn!")
+                hint.innerHTML = "Next";
+                target = Math.floor(Math.random() * 100);
+                input.value = "";
+            } else if (+input.value > target) {
+                hint.innerHTML = `${input.value} ? Go Lower`;
+                input.value = "";
+            } else {
+                hint.innerHTML = `${input.value} ? Go Upper`;
+                input.value = "";
+            };
+        };
+
+        document.addEventListener('keyup', function (event) {
+            if ((event.key == "Enter") && (input.value != "")) {
+                check()
+            };
+        });
+    </script>
+</body>
+
+</html>
